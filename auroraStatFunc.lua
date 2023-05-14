@@ -76,23 +76,23 @@ customEventHooks.registerHandler("OnServerPostInit", auroraCounterConfig.loadDat
         local cell = LoadedCells[cellDescription]
 		
 		--Do I need this stuff???
-		tes3mp.ClearKillChanges()
+	tes3mp.ClearKillChanges()
 
-			for uniqueIndex, actor in pairs(actors) do		
-				if WorldInstance.data.kills[actor.refId] == nil then
-				   WorldInstance.data.kills[actor.refId] = 0
-				end		
+	for uniqueIndex, actor in pairs(actors) do		
+		if WorldInstance.data.kills[actor.refId] == nil then
+			WorldInstance.data.kills[actor.refId] = 0
+		end		
             table.insert(cell.unusableContainerUniqueIndexes, uniqueIndex)
         end
 
 		tes3mp.SendWorldKillCount(pid, true)
 			methods.addKillData(pid)--add kill count to database
               for id, _ in pairs(Players) do
-                 if cellDescription == tes3mp.GetCell(id) then
-					cell:LoadContainers(id, cell.data.objectData, {uniqueIndex})
-				 end
-			end
-		end)
+                    if cellDescription == tes3mp.GetCell(id) then
+			cell:LoadContainers(id, cell.data.objectData, {uniqueIndex})
+		   end
+		end
+	end)
 		
 methods.auroraLevelUp = function(eventStatus, pid)
 
