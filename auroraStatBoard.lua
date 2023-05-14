@@ -21,6 +21,7 @@ auroraCounterConfig.loadData = function()
 		totalPlayerLevelUps = 0,
 		totalPlayerLogins = 0
 	}
+    end
 end
 
 auroraStatBoard.Main = function(pid, eventStatus)
