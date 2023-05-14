@@ -23,7 +23,7 @@ auroraCounterConfig.loadData = function()
 	}
     end
 end
-
+				    --think this is backwards?
 auroraStatBoard.Main = function(pid, eventStatus)
 
 local daysPassed = WorldInstance.data.time.daysPassed
