@@ -109,8 +109,8 @@ local inventory = Players[pid].data.inventory
 local requiredGold = {refId = "gold_001", count = config.goldCost, charge = -1, enchantmentCharge = -1, soul = ""}
 local goldIndex = inventoryHelper.getItemIndex(inventory, requiredGold.refId)
 
-	  inventoryHelper.removeExactItem(inventory, requiredGold.refId, requiredGold.count)--approve gold removal client side
-	  Players[pid]:LoadItemChanges({requiredGold}, enumerations.inventory.REMOVE)--approve gold removal server side
+	  inventoryHelper.removeExactItem(inventory, requiredGold.refId, requiredGold.count)
+	  Players[pid]:LoadItemChanges({requiredGold}, enumerations.inventory.REMOVE)
 	  auroraTeleportHandler(pid, positionTable)
 	
 end
@@ -131,7 +131,7 @@ local msgBox = 1171952
 Methods.onPrintPlayerLoc = function(pid)
 
 --[[
-Interior cells will return 0,0 as the script dont care to snitch the cell's description. Just ignire this and use the cell's id for Interiors Only.
+Interior cells will return 0,0 as the script dont care to snitch the cell's description. Just ignore this and use the cell's id for Interiors Only.
 ]]
 
     local message = "Coordinates: " .. tes3mp.GetExteriorX(pid) .. ", " .. tes3mp.GetExteriorY(pid) .. color.Red .. ", "
