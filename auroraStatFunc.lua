@@ -21,6 +21,10 @@ DISPLAY
 |Total kills made by players
 |Total level ups by players
 |Total times players logged in
+TODO: Total player sent messages
+TODO: Total player journal updates
+TODO: Total player custom items? Method, gather the data from recordstore itself
+TODO: 
 ]]
 
 local auroraStatFunc = {}
