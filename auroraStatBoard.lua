@@ -26,15 +26,15 @@ end
 
 auroraStatBoard.Main = function(pid, eventStatus)
 
-	local daysPassed = WorldInstance.data.time.daysPassed
-	local hour = WorldInstance.data.time.hour
-    local day = WorldInstance.data.time.day
-    local month = WorldInstance.data.time.month
-	local totalPlayerKills = auroraCounterConfig.data.totalPlayerKills
-	local totalPlayerLevelUps = auroraCounterConfig.data.totalPlayerLevelUps
-	local totalPlayerLogins = auroraCounterConfig.data.totalPlayerLogins
-    local list = ""         		
-		  list = list .. "Close"
+local daysPassed = WorldInstance.data.time.daysPassed
+local hour = WorldInstance.data.time.hour
+local day = WorldInstance.data.time.day
+local month = WorldInstance.data.time.month
+local totalPlayerKills = auroraCounterConfig.data.totalPlayerKills
+local totalPlayerLevelUps = auroraCounterConfig.data.totalPlayerLevelUps
+local totalPlayerLogins = auroraCounterConfig.data.totalPlayerLogins
+local list = ""         		
+list = list .. "Close"
 		  
 	auroraCounterConfig.data = jsonInterface.load("custom/aurora/auroraDatabase.json")		  
 	auroraStatBoard.Main = jsonInterface.load("custom/aurora/auroraDatabase.json")
