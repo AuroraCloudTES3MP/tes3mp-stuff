@@ -14,7 +14,13 @@ local auroraCounterConfig = {}
 
 auroraCounterConfig.loadData = function()
     auroraCounterConfig.data = jsonInterface.load("custom/aurora/auroraDatabase.json")
-    if auroraCounterConfig.data == nil then auroraCounterConfig.data = {totalPlayerKills = 0} end
+    if auroraCounterConfig.data == nil then
+	
+	auroraCounterConfig.data = {
+		totalPlayerKills = 0,
+		totalPlayerLevelUps = 0,
+		totalPlayerLogins = 0
+	}
 end
 
 auroraStatBoard.Main = function(pid, eventStatus)
