@@ -1,9 +1,10 @@
 --[[
 
 |===================|
-| Aurora Info Board |
+| Aurora Stat Board |
 |===================|
-
+requires auroraStatFunc
+Changed command to /stats to bring up info
 ]]
 
 local auroraStatBoard = {}
