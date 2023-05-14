@@ -5,7 +5,7 @@ By Aurora Cloud (IM NEW TO THIS)
 My first public tes3mp server script.
 ================
 INSTALLATION
-server/scripts/custom/aurora
+server/scripts/custom/
 
 Add to customScripts.lua in server/scripts
 
@@ -22,8 +22,6 @@ DISPLAY
 |Total level ups by players
 |Total times players logged in
 ]]
-
---Main GUI
 
 local auroraStatFunc = {}
 local auroraCounterConfig = {}
