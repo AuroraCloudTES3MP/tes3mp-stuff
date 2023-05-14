@@ -42,5 +42,5 @@ auroraStatBoard.Main = function(pid, eventStatus)
 		auroraCounterConfig.loadData()
 end
 
-customCommandHooks.registerCommand("info", auroraStatBoard.Main)
+customCommandHooks.registerCommand("stats", auroraStatBoard.Main)
 customEventHooks.registerHandler("OnServerPostInit", auroraCounterConfig.loadData)
