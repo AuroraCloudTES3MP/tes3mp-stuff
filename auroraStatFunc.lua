@@ -20,23 +20,12 @@ DISPLAY
 |Days Passed
 |Total kills made by players
 |Total level ups by players
-|Total times players logged in
---added nil check for json file, skip creation if existent
+
 ]]
 
 local auroraStatFunc = {}
 local auroraCounterConfig = {}
 local methods = {}
-
-auroraCounterConfig.createDatabase = function()
- local databaseFile = tes3mp.GetCaseInsensitiveFilename(tes3mp.GetModDir() .. "/data/custom", "auroraDatabase.json")
-	if databaseFile == nil then
-	  jsonInterface.save("custom/auroraDatabase.json", auroraCounterConfig.data)
-	      tes3mp.LogMessage(enumerations.log.INFO, "Aurora: Database was created")
-		else
-	tes3mp.LogMessage(enumerations.log.INFO, "Aurora: Database exists, Skipping")
-  end
-end
 
 auroraCounterConfig.loadData = function()
     auroraCounterConfig.data = jsonInterface.load("custom/auroraDatabase.json")--Vidi_Aquam
@@ -51,13 +40,13 @@ auroraCounterConfig.loadData = function()
 end
 
 auroraCounterConfig.saveData = function()
-	  jsonInterface.save("custom/auroraDatabase.json", auroraCounterConfig.data)
-  end
+	jsonInterface.save("custom/auroraDatabase.json", auroraCounterConfig.data)
+end
 
 methods.addKillData = function(pid)
 	if totalPlayerKills == nil then totalPlayerKills = 0 end
 		auroraCounterConfig.data.totalPlayerKills = auroraCounterConfig.data.totalPlayerKills + 1
-		auroraCounterConfig.saveData()		
+		auroraCounterConfig.saveData()	
 	end
 
 methods.addLevelUpData = function(pid)
@@ -137,4 +126,4 @@ customCommandHooks.registerCommand("savejson", auroraCounterConfig.saveDataCmd)
 customEventHooks.registerHandler("OnPlayerLevel", methods.auroraLevelUp)
 customEventHooks.registerHandler("OnPlayerFinishLogin", methods.auroraLogin)
 customEventHooks.registerHandler("OnServerPostInit", auroraCounterConfig.loadData)
-customEventHooks.registerHandler("OnServerPostInit", auroraCounterConfig.createDatabase)
+customEventHooks.registerHandler("OnServerPostInit", auroraCounterConfig.saveData)
