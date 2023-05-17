@@ -21,15 +21,22 @@ DISPLAY
 |Total kills made by players
 |Total level ups by players
 |Total times players logged in
-TODO: Total player sent messages
-TODO: Total player journal updates
-TODO: Total player custom items? Method, gather the data from recordstore itself
-TODO: 
+--added nil check for json file, skip creation if existent
 ]]
 
 local auroraStatFunc = {}
 local auroraCounterConfig = {}
 local methods = {}
+
+auroraCounterConfig.createDatabase = function()
+ local databaseFile = tes3mp.GetCaseInsensitiveFilename(tes3mp.GetModDir() .. "/data/custom", "auroraDatabase.json")
+	if databaseFile == nil then
+	  jsonInterface.save("custom/auroraDatabase.json", auroraCounterConfig.data)
+	      tes3mp.LogMessage(enumerations.log.INFO, "Aurora: Database was created")
+		else
+	tes3mp.LogMessage(enumerations.log.INFO, "Aurora: Database exists, Skipping")
+  end
+end
 
 auroraCounterConfig.loadData = function()
     auroraCounterConfig.data = jsonInterface.load("custom/auroraDatabase.json")--Vidi_Aquam
@@ -130,4 +137,4 @@ customCommandHooks.registerCommand("savejson", auroraCounterConfig.saveDataCmd)
 customEventHooks.registerHandler("OnPlayerLevel", methods.auroraLevelUp)
 customEventHooks.registerHandler("OnPlayerFinishLogin", methods.auroraLogin)
 customEventHooks.registerHandler("OnServerPostInit", auroraCounterConfig.loadData)
-customEventHooks.registerHandler("OnServerPostInit", auroraCounterConfig.saveData)
+customEventHooks.registerHandler("OnServerPostInit", auroraCounterConfig.createDatabase)
