@@ -13,7 +13,7 @@ auroraStatBoard.GUI = 3889165
 local auroraCounterConfig = {}
 
 auroraCounterConfig.loadData = function()
-    auroraCounterConfig.data = jsonInterface.load("custom/aurora/auroraDatabase.json")
+    auroraCounterConfig.data = jsonInterface.load("custom/auroraDatabase.json")
     if auroraCounterConfig.data == nil then
 	
 	auroraCounterConfig.data = {
