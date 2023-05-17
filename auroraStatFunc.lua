@@ -32,7 +32,7 @@ local auroraCounterConfig = {}
 local methods = {}
 
 auroraCounterConfig.loadData = function()
-    auroraCounterConfig.data = jsonInterface.load("custom/aurora/auroraDatabase.json")--Vidi_Aquam
+    auroraCounterConfig.data = jsonInterface.load("custom/auroraDatabase.json")--Vidi_Aquam
     if auroraCounterConfig.data == nil then
 	
 	auroraCounterConfig.data = {
@@ -44,7 +44,7 @@ auroraCounterConfig.loadData = function()
 end
 
 auroraCounterConfig.saveData = function()
-	  jsonInterface.save("custom/aurora/auroraDatabase.json", auroraCounterConfig.data)
+	  jsonInterface.save("custom/auroraDatabase.json", auroraCounterConfig.data)
   end
 
 methods.addKillData = function(pid)
@@ -68,7 +68,7 @@ methods.addPlayerLoginData = function(pid)
 auroraCounterConfig.saveDataCmd= function(pid, cmd)
 --This was originally used for creating the json data for early testing
 	if cmd == "savejson" and Players[pid].data.staffRank >= 1 then
-	  jsonInterface.save("custom/aurora/auroraDatabase.json", auroraCounterConfig.data)
+	  jsonInterface.save("custom/auroraDatabase.json", auroraCounterConfig.data)
 		else
 		 tes3mp.SendMessage(pid, color.Error .. "Only Admins may use this command.\n")
 	 end
@@ -114,7 +114,7 @@ end
 
 auroraCounterConfig.loadData = function()
 
-    auroraCounterConfig.data = jsonInterface.load("custom/aurora/auroraDatabase.json")
+    auroraCounterConfig.data = jsonInterface.load("custom/auroraDatabase.json")
     if auroraCounterConfig.data == nil then
 	
 auroraCounterConfig.data = {	
