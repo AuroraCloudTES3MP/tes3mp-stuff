@@ -36,8 +36,8 @@ local totalPlayerLogins = auroraCounterConfig.data.totalPlayerLogins
 local list = ""         		
 list = list .. "Close"
 		  
-	auroraCounterConfig.data = jsonInterface.load("custom/aurora/auroraDatabase.json")		  
-	auroraStatBoard.Main = jsonInterface.load("custom/aurora/auroraDatabase.json")
+	auroraCounterConfig.data = jsonInterface.load("custom/auroraDatabase.json")		  
+	auroraStatBoard.Main = jsonInterface.load("custom/auroraDatabase.json")
 	tes3mp.CustomMessageBox(pid, auroraStatBoard.GUI, color.Purple .. "{Aurora}\n" .. color.DodgerBlue .. "Server Statistics\n" .. color.Yellow .. "Current Hour " .. hour .. "\n" .. "Current Day: " .. day .. "\n" .. "Current Month: " .. month .."\n" .. "Days Passed: " .. daysPassed .. "\n" .. "Total Creatures Killed: "  .. totalPlayerKills .. "\n" .. "Total Player Logins: " .. totalPlayerLogins .. "\n" .. "Total Player Level-Ups: " .. totalPlayerLevelUps .. color.Default, list)                                      
 		auroraCounterConfig.loadData()
 end
