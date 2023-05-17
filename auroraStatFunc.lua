@@ -108,20 +108,6 @@ methods.auroraLogin = function(eventStatus, pid)
 	methods.addPlayerLoginData(pid)--add login count to database
 end
 
-auroraCounterConfig.loadData = function()
-
-    auroraCounterConfig.data = jsonInterface.load("custom/auroraDatabase.json")
-    if auroraCounterConfig.data == nil then
-	
-auroraCounterConfig.data = {	
-	totalPlayerKills = 0,
-	totalPlayerLevelUps = 0,
-	totalPlayerLogins = 0
-}
-	  
-  end
-end
-
 customCommandHooks.registerCommand("savejson", auroraCounterConfig.saveDataCmd)
 customEventHooks.registerHandler("OnPlayerLevel", methods.auroraLevelUp)
 customEventHooks.registerHandler("OnPlayerFinishLogin", methods.auroraLogin)
