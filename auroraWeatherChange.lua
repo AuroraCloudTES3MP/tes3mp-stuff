@@ -1,3 +1,5 @@
+--logicHandler.RunConsoleCommandOnPlayer(pid, "changeweather \"" .. currentRegion .. "\" " .. weather)
+--will kick non evaluated pid, script is here for fun iguess
 local aurora = {}
 local WeatherGUI = 9891127
 
